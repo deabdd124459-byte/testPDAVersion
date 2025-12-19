@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 主內容區（DFM 容器） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 簡單的 Header / Toolbar 區 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#455A64"
+            android:paddingStart="12dp">
+
+            <Button
+                android:id="@+id/btn_open_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☰"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MyAPK Platform"
+                android:textColor="#FFFFFF"
+                android:paddingStart="12dp"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/dfm_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#EEEEEE"/>
+
+        <Button
+            android:id="@+id/btn_close_app"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="關閉程式 (EXIT)"
+            android:backgroundTint="#D32F2F"/>
+    </LinearLayout>
+
+    <!-- 左側 Drawer 功能選單 -->
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="#D1D1D1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="功能選單"
+            android:textStyle="bold"
+            android:background="#B0B0B0"/>
+
+        <ExpandableListView
+            android:id="@+id/function_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:groupIndicator="@null"
+            android:divider="#888888"
+            android:dividerHeight="1dp"/>
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
