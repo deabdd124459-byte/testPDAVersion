@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapkplatform.dfm_mountstencil">
+
+    <application>
+        <!-- 可在此加入 Activity, Service 等元件 -->
+    </application>
+
+</manifest>

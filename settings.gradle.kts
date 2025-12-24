@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 rootProject.name = "MyApkPlatform"
 include(":app")
 include(":FeatureModules:dfm_loadmaterial")
+include(":dynamicfeature")
+include(":dfm_mountstencil")
