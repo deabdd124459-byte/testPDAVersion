@@ -12,8 +12,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/FeatureModules" />
             <option value="$PROJECT_DIR$/FeatureModules/dfm_loadmaterial" />
+            <option value="$PROJECT_DIR$/FeatureModules/dfm_mountstencil" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/dfm_mountstencil" />
             <option value="$PROJECT_DIR$/dynamicfeature" />
           </set>
         </option>

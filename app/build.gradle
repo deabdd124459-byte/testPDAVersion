@@ -16,7 +16,7 @@ android {
     }
 
     // 關鍵！
-    dynamicFeatures = [":FeatureModules:dfm_loadmaterial", ':dfm_mountstencil', ':dynamicfeature', ':dfm_mountstencil']
+    dynamicFeatures = [":FeatureModules:dfm_loadmaterial", ':FeatureModules:dfm_mountstencil']
 
     bundle {
         language { enableSplit = false }
@@ -35,4 +35,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
 }

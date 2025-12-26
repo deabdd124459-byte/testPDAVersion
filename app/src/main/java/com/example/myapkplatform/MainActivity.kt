@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         "Load Material" to DfmInfo(
             moduleName = "dfm_loadmaterial",
             fragmentClass = "com.example.myapkplatform.dfm_loadmaterial.LoadMaterialFragment"
+        ),
+        "Mount Stencil" to DfmInfo(
+            moduleName = "dfm_mountstencil",
+            fragmentClass = "com.example.myapkplatform.dfm_mountstencil.MountStencilFragment"
         )
     )
 
