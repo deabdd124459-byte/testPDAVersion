@@ -24,7 +24,7 @@ class MountStencilFragment : Fragment() {
         val btnClose = view.findViewById<Button>(R.id.btnClose)
 
         // 先給 Spinner 假資料避免 null
-        val lines = listOf("SMT-1", "SMT-2", "SMT-3")
+        val lines = listOf("SMT-1", "SMT-2", "SMT-3", "SMT-4")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, lines)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spnLine.adapter = adapter
