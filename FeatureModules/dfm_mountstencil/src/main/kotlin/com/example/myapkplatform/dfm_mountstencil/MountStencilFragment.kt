@@ -1,11 +1,16 @@
-package com.example.myapkplatform.dfm_mountstencil
+package com.example.myapkplatform.dfm_mountstencil.com.example.myapkplatform.dfm_mountstencil
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.myapkplatform.dfm_mountstencil.R
 
 class MountStencilFragment : Fragment() {
 
