@@ -1,10 +1,11 @@
-package com.example.myapkplatform
+package com.example.myapkplatform.ui
 
 import android.os.Bundle
 import android.widget.*
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.example.myapkplatform.R
 import com.example.myapkplatform.ui.base.BaseActivity
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallRequest
