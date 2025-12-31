@@ -26,7 +26,7 @@ class LoginActivity : BaseActivity() {
         setContentView(binding.root)
 
         // Use the correct title for the login screen
-        setupToolbar(binding.toolbar, getString(R.string.title_login))
+        setupToolbar(binding.toolbar, getString(R.string.about_pda_client))
 
         setupLanguageSpinner()
         setupButtonClickListeners()

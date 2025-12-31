@@ -1,5 +1,6 @@
 package com.example.myapkplatform.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.core.view.GravityCompat
@@ -7,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.myapkplatform.R
 import com.example.myapkplatform.ui.base.BaseActivity
+import com.example.myapkplatform.ui.login.LoginActivity
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallRequest
 
@@ -92,10 +94,6 @@ class MainActivity : BaseActivity() {
         findViewById<Button>(R.id.btn_open_menu).setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
-
-        findViewById<Button>(R.id.btn_close_app).setOnClickListener {
-            finishAffinity()
-        }
     }
 
     // 步驟 5: 修改 setupMenu，讓它處理 MenuNode，並在點擊時傳遞固定的 Key
@@ -136,14 +134,31 @@ class MainActivity : BaseActivity() {
 
     // 步驟 6: handleMenuClick 現在接收的是 itemKey，可以直接用於 dfmMap
     private fun handleMenuClick(itemKey: String) {
-        val dfm = dfmMap[itemKey]
+        when (itemKey) {
+            "system_logout" -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            }
+            "system_exit" -> {
+                finishAffinity()
+            }
+            "system_about" -> {
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+            }
+            else -> {
+                val dfm = dfmMap[itemKey]
 
-        if (dfm == null) {
-            Toast.makeText(this, "點擊的功能 Key: $itemKey (此功能尚未實作)", Toast.LENGTH_SHORT).show()
-            return
+                if (dfm == null) {
+                    Toast.makeText(this, "點擊的功能 Key: $itemKey (此功能尚未實作)", Toast.LENGTH_SHORT).show()
+                    return
+                }
+
+                loadDfm(dfm)
+            }
         }
-
-        loadDfm(dfm)
     }
 
     private fun loadDfm(dfm: DfmInfo) {

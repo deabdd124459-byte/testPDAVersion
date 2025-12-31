@@ -43,12 +43,6 @@
             android:layout_weight="1"
             android:background="#EEEEEE"/>
 
-        <Button
-            android:id="@+id/btn_close_app"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="關閉程式 (EXIT)"
-            android:backgroundTint="#D32F2F"/>
     </LinearLayout>
 
     <!-- 左側 Drawer 功能選單 -->
