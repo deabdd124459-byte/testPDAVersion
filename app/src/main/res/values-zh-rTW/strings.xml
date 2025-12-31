@@ -1,0 +1,230 @@
+<!-- 這是繁體中文 (台灣地區) 的字串資源檔 -->
+<resources>
+    <!-- App 基本資訊 -->
+    <string name="app_name">PDA</string>
+
+    <!-- 主畫面 (MainActivity) - 底部導覽列的項目文字 -->
+    <string name="menu_system">系統(S)</string>
+    <string name="menu_p30_smt">P30 SMT</string>
+    <string name="menu_p32_stencil_manager">P32 鋼板管理</string>
+    <string name="menu_p79_oqc">P79 出貨前檢驗</string>
+    <string name="menu_p96_picking">P96 撿貨作業</string>
+
+    <!-- System 選單的子項目 -->
+    <string name="system_logout">登出(L)</string>
+    <string name="system_about">關於(A)</string>
+    <string name="system_exit">離開(X)</string>
+
+    <!-- About 頁面的文字 -->
+    <string name="about_pda_client">PDA Client</string>
+    <string name="about_version">版本 1.0.4125.24016</string>
+    <string name="about_copyright">Copyright (C) Chroma 2010</string>
+    <string name="about_url">http://192.168.1.192:82/PDAService</string>
+
+    <!-- 各功能項目 (Function) 的名稱 -->
+    <!-- P30 -->
+    <string name="p30_smt">上料</string>
+    <string name="p30_smt_load">SMT 上料</string>
+    <string name="p30_smt_msd_baking">MSD烘烤</string>
+    <string name="p30_smt_dry_box_control">防潮箱控管</string>
+    <string name="p30_smt_dry_box_in_out">進出防潮箱</string>
+    <!-- P32 -->
+    <string name="p32_stencil_op">鋼板作業</string>
+    <string name="p32_stencil_load">鋼板上下機</string>
+    <string name="p32_stencil_rank_in_out">鋼板上下架</string>
+    <string name="p32_stencil_begin_clean">鋼板開始清洗</string>
+    <string name="p32_stencil_finish_clean">鋼板結束清洗</string>
+    <!-- P79 -->
+    <string name="p79_oqc_oqc">OQC</string>
+    <string name="p79_oqc_lot_code_check">Lot Code檢驗</string>
+    <string name="p79_oqc_lot_code_oqc_check">出貨前檢驗</string>
+    <!-- P96 -->
+    <string name="p96_picking_dmx">德泰撿貨</string>
+    <string name="p96_picking_picking">撿貨</string>
+    <string name="p96_picking_outsourcing">905轉出貨</string>
+
+    <!-- 通用按鈕文字 -->
+    <string name="button_confirm">確定</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_close">關閉</string>
+    <string name="button_clear">清除</string>
+
+    <!-- (新增) SMT 作業頁面 -->
+    <string name="label_cart_no">台車</string>
+    <string name="label_input">輸入</string>
+    <string name="label_input_type_reel">料捲</string>
+    <string name="label_input_type_cmd">CMD</string>
+    <string name="label_input_type_cart">CART</string>
+
+    <!-- (新增) SMT 作業頁面 - 表格標題 -->
+    <string name="header_station">站別</string>
+    <string name="header_feeder_no">料架</string>
+    <string name="header_feeder_type">Feeder Type</string>
+    <string name="header_feeder_lr">Feeder LR</string>
+
+    <!-- (新增) SMT 作業頁面 - 分頁標題 -->
+    <string name="tab_reel_data">料捲資料</string>
+    <string name="tab_msl_data">料站表資料</string>
+    <string name="tab_terminal_data">工作站資料</string>
+
+    <!-- (新增) SMT 作業頁面 - 工作站資料 -->
+    <string name="label_pdline">線別</string>
+    <string name="label_process_name">製程</string>
+    <string name="label_terminal_name">工作站</string>
+    <string name="label_load_status">上料狀態</string>
+
+    <!-- SMT 上料畫面的文字 -->
+    <string name="title_smt">SMT</string>
+    <string name="label_terminal">工作站編號</string>
+    <string name="label_line">線別</string>
+    <string name="label_process">製程</string>
+    <string name="label_workstation">工作站</string>
+    <string name="label_machine_code">機台代碼</string>
+    <string name="label_side">正反面</string>
+    <string name="label_work_order">工單</string>
+
+    <!-- MSD 烘烤畫面的文字 -->
+    <string name="title_msd">MSD</string>
+    <string name="label_in_out">進/出烤箱</string>
+    <string name="label_msd_type">烘烤類型</string>
+    <string name="label_reel_no">料卷號</string>
+    <string name="label_part_no">料號</string>
+    <string name="label_in_time">投入時間</string>
+    <string name="label_in_emp">投入人員</string>
+    <string name="label_out_time">產出時間</string>
+    <string name="label_out_emp">產出人員</string>
+    <string name="label_type">類型</string>
+    <string name="option_in_oven">進烤箱</string>
+    <string-array name="in_out_options">
+        <item>進烤箱</item>
+        <item>出烤箱</item>
+    </string-array>
+    <string-array name="baking_type_options">
+        <item>低溫</item>
+        <item>高溫</item>
+    </string-array>
+
+    <!-- 進出防潮箱畫面的文字 -->
+    <string name="title_dry_box">進出防潮箱</string>
+    <string name="label_action_type">動作類型</string>
+    <string name="label_work_order_no">工單號碼</string>
+    <string name="label_in_box_time">進箱時間</string>
+    <string name="label_in_box_emp">進箱人員</string>
+    <string name="label_out_box_time">出箱時間</string>
+    <string name="label_out_box_emp">出箱人員</string>
+    <string-array name="dry_box_action_types">
+        <item>進防潮箱</item>
+        <item>出防潮箱</item>
+    </string-array>
+
+    <!-- 鋼板上下機畫面的文字 -->
+    <string name="title_stencil_load">鋼板上下機</string>
+    <string name="label_stencil_action">上/下鋼板</string>
+    <string name="label_stencil_terminal">工作站</string>
+    <string name="label_stencil_code">鋼板代碼</string>
+    <string name="label_status">狀態</string>
+    <string name="label_used_count">使用次數</string>
+    <string name="label_total_used_count">總使用次數</string>
+    <string-array name="stencil_load_action_types">
+        <item>上鋼板</item>
+        <item>下鋼板</item>
+    </string-array>
+
+    <!-- 鋼板上下架畫面的文字 -->
+    <string name="title_rack_in_out">鋼板上下架</string>
+    <string name="label_command">動作</string>
+    <string name="label_stencil_no">鋼板編號</string>
+    <string name="label_auto_confirm">自動確認</string>
+    <string-array name="rack_in_out_options">
+        <item>鋼板上架</item>
+        <item>鋼板下架</item>
+    </string-array>
+
+    <!-- 鋼板開始清洗畫面的文字 -->
+    <string name="title_begin_clean">開始清洗</string>
+
+    <!-- 鋼板完成清洗畫面的文字 -->
+    <string name="title_finish_clean">完成清洗</string>
+    <string name="label_left_top">左上</string>
+    <string name="label_right_top">右上</string>
+    <string name="label_middle">中央</string>
+    <string name="label_left_bottom">左下</string>
+    <string name="label_right_bottom">右下</string>
+
+    <!-- Lot Code 檢驗畫面的文字 -->
+    <string name="title_lot_code_check">Lot Code檢驗</string>
+    <string name="label_shipping_no">出貨單號</string>
+    <string name="label_pallet_no">棧板號</string>
+    <string name="label_lot_code">Lot Code</string>
+    <string name="label_result">結果</string>
+
+    <!-- OQC 出貨檢驗畫面的文字 -->
+    <string name="title_oqc_check">出貨檢驗</string>
+    <string name="tab_oqc">出貨檢驗</string>
+    <string name="tab_list">待驗清單</string>
+    <string name="tab_setup">設定</string>
+    <string name="tab_shipping_info">出貨資訊</string>
+    <string name="label_product_name">產品名稱</string>
+    <string name="label_total_quantity">出貨數量</string>
+    <string name="label_carton_no">箱號</string>
+    <string name="label_accumulate_quantity">累計數量</string>
+    <string name="button_bypass">強制允收</string>
+    <string name="button_accept">允收</string>
+    <string name="label_choose_oqc_unit">請選擇OQC檢驗單位：</string>
+    <string name="radio_customer_sn">客戶序號</string>
+    <string name="radio_factory_sn">廠內序號</string>
+    <string name="radio_pallet">棧板號</string>
+    <string name="label_quantity">數量</string>
+    <string name="label_fifo">先進先出</string>
+    <string name="label_sales_order">訂單號碼</string>
+    <string name="label_sales_order_item">訂單項目</string>
+    <string name="label_q">Q</string>
+
+    <!-- 登入畫面 (LoginActivity) 的相關文字 -->
+    <string name="title_login">登入</string>
+    <string name="label_language">語言</string>
+    <string name="label_account">帳號</string>
+    <string name="label_password">密碼</string>
+    <string name="hint_account">請輸入您的帳號</string>
+    <string name="hint_password">請輸入您的密碼</string>
+    <string name="login_failed">登入失敗</string>
+    <string name="login_error_empty_credentials">帳號或密碼不能為空</string>
+    <string name="login_success">登入成功！</string>
+
+    <!-- 登入畫面 (LoginActivity) - 語言下拉式選單的選項 -->
+    <string-array name="languages">
+        <item>English</item>
+        <item>繁體中文</item>
+    </string-array>
+
+    <!-- 無障礙設計 (Accessibility) 專用的描述文字，給螢幕閱讀器使用 -->
+    <string name="accessibility_language_spinner">選擇應用程式語言</string>
+
+    <!-- Picking 畫面的文字 -->
+    <string name="title_picking">撿貨</string>
+    <string name="tab_pick">撿貨</string>
+    <string name="tab_booking_info">預撿清單</string>
+    <string name="label_total_qty">出貨數量</string>
+    <string name="label_accumulate_qty">累計數量</string>
+    <string name="label_remnant_qty">剩餘數量</string>
+    <string name="button_finish">完成</string>
+    <string name="button_re_pick">重撿</string>
+    <string name="header_carton_no">箱號</string>
+    <string name="header_qty">數量</string>
+    <string name="header_product_name">產品名稱</string>
+    <string name="header_position">Position</string>
+    <string name="label_please_choose_pick_unit">請選擇撿貨單位：</string>
+    <string name="radio_sn">廠內序號</string>
+    <string name="radio_carton">箱號</string>
+    <string name="checkbox_clear_booking_info">重撿時清除預撿資料</string>
+    <string name="header_pick">撿</string>
+    <string name="header_sales_order">訂單號碼</string>
+    <string name="header_so_item">訂單項目</string>
+
+    <!-- Load Material strings -->
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="load_material_enter_part_no_and_qty">請輸入料號與數量</string>
+    <string name="load_material_success_toast">料號 %1$s\n數量 %2$s\nMSD: %3$s\n領料成功！</string>
+
+</resources>

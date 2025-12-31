@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.example.myapkplatform.R as AppR
 
 class LoadMaterialFragment : Fragment() {
 
@@ -26,14 +27,15 @@ class LoadMaterialFragment : Fragment() {
         btnLoad.setOnClickListener {
             val partNo = editPartNo.text.toString()
             val qty = editQty.text.toString()
-            val isMsd = if (checkMsd.isChecked) "是" else "否"
+            val isMsd = if (checkMsd.isChecked) getString(AppR.string.yes) else getString(AppR.string.no)
 
             if (partNo.isEmpty() || qty.isEmpty()) {
-                Toast.makeText(context, "請輸入料號與數量", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, AppR.string.load_material_enter_part_no_and_qty, Toast.LENGTH_SHORT).show()
             } else {
+                val toastMessage = getString(AppR.string.load_material_success_toast, partNo, qty, isMsd)
                 Toast.makeText(
                     context,
-                    "料號 $partNo\n數量 $qty\nMSD: $isMsd\n領料成功！",
+                    toastMessage,
                     Toast.LENGTH_LONG
                 ).show()
             }

@@ -4,7 +4,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_dfm_loadmaterial">
+        dist:title="@string/p30_smt_load">
         <dist:delivery>
             <dist:on-demand />
         </dist:delivery>
