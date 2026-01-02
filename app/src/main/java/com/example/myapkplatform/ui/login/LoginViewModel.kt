@@ -29,7 +29,7 @@ class LoginViewModel : ViewModel() {
     val updateResult: LiveData<VersionInfo?> = _updateResult
 
     // URL for the version info file - 請將 <您的Gitea網域> 換成您的真實網址
-    private val VERSION_URL = "http://192.168.20.103:3000/admin/MyApkProject/raw/branch/main/docs/version.json"
+    private val VERSION_URL = "https://raw.githubusercontent.com/deabdd124459-byte/testPDAVersion/refs/heads/beibei_test/docs/version.json"
     fun checkForUpdate() {
         viewModelScope.launch {
             try {

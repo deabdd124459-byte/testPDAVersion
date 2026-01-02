@@ -1,6 +1,6 @@
 {
-  "versionCode": 1,
-  "versionName": "1.0",
-  "apkUrl": "https://raw.githubusercontent.com/deabdd124459-byte/testPDAVersion/belbei_test/docs/pda-release.apk",
-  "releaseNotes": "首次發布"
+  "versionCode": 2,
+  "versionName": "1.0.1",
+  "apkUrl": "https://github.com/deabdd124459-byte/testPDAVersion/raw/refs/heads/beibei_test/docs/app-debug.apk",
+  "releaseNotes": "測試發布功能"
 }
