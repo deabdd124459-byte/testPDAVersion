@@ -226,4 +226,11 @@
 <string name="no">No</string>
 <string name="load_material_enter_part_no_and_qty">Please enter Part No. and quantity</string>
 <string name="load_material_success_toast">Part No: %1$s Qty: %2$s MSD: %3$s Load successful!</string>
+
+<!-- 自動更新相關文字 -->
+<string name="update_available_title">New Version Available</string>
+<string name="update_available_message">Version %1$s is available. Release notes: %2$s</string>
+<string name="update_now">Update Now</string>
+<string name="update_later">Later</string>
+
 </resources>

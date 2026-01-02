@@ -1,4 +1,4 @@
-package com.example.myapkplatform.data.auth
+package com.example.myapkplatform.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
@@ -56,3 +56,13 @@ data class Privilege(
     @SerializedName("function")
     val function: String
 ) : Serializable
+
+/**
+ * version.json 的資料模型
+ */
+data class VersionInfo(
+    val versionCode: Int,
+    val versionName: String,
+    val apkUrl: String,
+    val releaseNotes: String
+)

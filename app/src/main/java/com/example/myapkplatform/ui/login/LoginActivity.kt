@@ -1,16 +1,20 @@
 package com.example.myapkplatform.ui.login
 
+import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.example.myapkplatform.ui.MainActivity
 import com.example.myapkplatform.R
-import com.example.myapkplatform.data.auth.LoginResponse
+import com.example.myapkplatform.model.LoginResponse
 import com.example.myapkplatform.databinding.ActivityLoginBinding
+import com.example.myapkplatform.model.VersionInfo
+import com.example.myapkplatform.ui.MainActivity
 import com.example.myapkplatform.ui.base.ApiStatus
 import com.example.myapkplatform.ui.base.BaseActivity
 import com.example.myapkplatform.util.LocaleManager
@@ -20,48 +24,54 @@ class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
+    private val TAG = "LoginActivityUpdate"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Use the correct title for the login screen
         setupToolbar(binding.toolbar, getString(R.string.about_pda_client))
-
         setupLanguageSpinner()
         setupButtonClickListeners()
         observeViewModel()
+
+        // Trigger the update check from the ViewModel
+        viewModel.checkForUpdate()
     }
 
     private fun observeViewModel() {
+        // Observer for login result
         viewModel.loginResult.observe(this) { apiResponse ->
-            // The logic is now driven by the server's response
-            if (apiResponse.isSuccess && apiResponse.data?.data != null) {
-                // Login successful, call the handler
+            if (apiResponse.isSuccess && apiResponse.data != null) {
                 handleLoginSuccess(apiResponse.data)
             } else {
-                // Login failed, show the detailed error message from the server
                 Toast.makeText(this, apiResponse.message ?: getString(R.string.login_failed), Toast.LENGTH_LONG).show()
             }
         }
 
+        // Observer for API status (e.g., show loading indicator)
         viewModel.apiStatus.observe(this) { status ->
             val isLoading = status == ApiStatus.LOADING
             binding.buttonConfirm.isEnabled = !isLoading
+        }
+
+        // Observer for the update check result
+        viewModel.updateResult.observe(this) { versionInfo ->
+            if (versionInfo != null && versionInfo.versionCode > getCurrentVersionCode()) {
+                showUpdateDialog(versionInfo)
+            }
         }
     }
 
     private fun handleLoginSuccess(loginResponse: LoginResponse) {
         Toast.makeText(this, loginResponse.message ?: getString(R.string.login_success), Toast.LENGTH_SHORT).show()
-
         val intent = Intent(this, MainActivity::class.java).apply {
-            // Pass the user data (LoginData) to MainActivity
             putExtra("LOGIN_CREDENTIAL", loginResponse.data)
         }
         startActivity(intent)
         finish()
     }
-
 
     private fun setupLanguageSpinner() {
         val languages = resources.getStringArray(R.array.languages)
@@ -103,5 +113,32 @@ class LoginActivity : BaseActivity() {
         binding.buttonCancel.setOnClickListener {
             finishAffinity() // Close the entire task
         }
+    }
+
+    // --- 自動更新相關 UI 邏輯 ---
+
+    private fun getCurrentVersionCode(): Int {
+        return try {
+            packageManager.getPackageInfo(packageName, 0).versionCode
+        } catch (e: Exception) {
+            Log.e(TAG, "Error getting current version code", e)
+            -1
+        }
+    }
+
+    private fun showUpdateDialog(versionInfo: VersionInfo) {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.update_available_title))
+            .setMessage(getString(R.string.update_available_message, versionInfo.versionName, versionInfo.releaseNotes))
+            .setPositiveButton(getString(R.string.update_now)) { _, _ ->
+                Log.d(TAG, "Starting download for URL: ${versionInfo.apkUrl}")
+                val intent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse(versionInfo.apkUrl)
+                }
+                startActivity(intent)
+            }
+            .setNegativeButton(getString(R.string.update_later), null)
+            .setCancelable(false) // Make user choose
+            .show()
     }
 }

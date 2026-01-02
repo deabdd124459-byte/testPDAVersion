@@ -226,5 +226,11 @@
     <string name="no">否</string>
     <string name="load_material_enter_part_no_and_qty">請輸入料號與數量</string>
     <string name="load_material_success_toast">料號 %1$s\n數量 %2$s\nMSD: %3$s\n領料成功！</string>
+    
+    <!-- 自動更新相關文字 -->
+    <string name="update_available_title">有新版本可供更新</string>
+    <string name="update_available_message">版本 %1$s 已發布。更新內容：%2$s</string>
+    <string name="update_now">立即更新</string>
+    <string name="update_later">稍後更新</string>
 
 </resources>

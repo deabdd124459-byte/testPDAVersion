@@ -1,4 +1,4 @@
-package com.example.myapkplatform.data
+package com.example.myapkplatform.model
 
 data class ApiResponse<T>(
     val isSuccess: Boolean,

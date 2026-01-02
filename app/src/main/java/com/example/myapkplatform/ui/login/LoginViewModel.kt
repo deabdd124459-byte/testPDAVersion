@@ -1,12 +1,14 @@
 package com.example.myapkplatform.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myapkplatform.data.ApiResponse
-import com.example.myapkplatform.data.auth.LoginRequest
-import com.example.myapkplatform.data.auth.LoginResponse
+import com.example.myapkplatform.model.ApiResponse
+import com.example.myapkplatform.model.LoginRequest
+import com.example.myapkplatform.model.LoginResponse
+import com.example.myapkplatform.model.VersionInfo
 import com.example.myapkplatform.network.RetrofitClient
 import com.example.myapkplatform.ui.base.ApiStatus
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +23,32 @@ class LoginViewModel : ViewModel() {
 
     private val _apiStatus = MutableLiveData<ApiStatus>()
     val apiStatus: LiveData<ApiStatus> = _apiStatus
+
+    // For update check
+    private val _updateResult = MutableLiveData<VersionInfo?>()
+    val updateResult: LiveData<VersionInfo?> = _updateResult
+
+    // URL for the version info file - 請將 <您的Gitea網域> 換成您的真實網址
+    private val VERSION_URL = "http://192.168.20.103:3000/admin/MyApkProject/raw/branch/main/docs/version.json"
+    fun checkForUpdate() {
+        viewModelScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    RetrofitClient.apiService.checkVersion(VERSION_URL).execute()
+                }
+
+                if (response.isSuccessful) {
+                    _updateResult.postValue(response.body())
+                } else {
+                    Log.e("LoginViewModel", "Failed to fetch version info: ${response.errorBody()?.string()}")
+                    _updateResult.postValue(null) // Post null on failure
+                }
+            } catch (e: Exception) {
+                Log.e("LoginViewModel", "Error fetching version info", e)
+                _updateResult.postValue(null) // Post null on error
+            }
+        }
+    }
 
     fun login(account: String, password: String) {
         viewModelScope.launch {
