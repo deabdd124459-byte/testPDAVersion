@@ -1,6 +1,6 @@
 {
   "versionCode": 1,
   "versionName": "1.0",
-  "apkUrl": "http://192.168.20.103:3000/admin/MyApkProject/raw/branch/main/docs/pda-release.apk",
+  "apkUrl": "https://raw.githubusercontent.com/deabdd124459-byte/testPDAVersion/belbei_test/docs/pda-release.apk",
   "releaseNotes": "首次發布"
 }
