@@ -3,6 +3,7 @@ package com.example.myapkplatform.ui.login
 import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,9 +11,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.content.pm.PackageInfoCompat
 import com.example.myapkplatform.R
-import com.example.myapkplatform.model.LoginResponse
 import com.example.myapkplatform.databinding.ActivityLoginBinding
+import com.example.myapkplatform.model.LoginResponse
 import com.example.myapkplatform.model.VersionInfo
 import com.example.myapkplatform.ui.MainActivity
 import com.example.myapkplatform.ui.base.ApiStatus
@@ -107,6 +109,7 @@ class LoginActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
+            // Shortcut for testing
             if (account == "test" && password == "test") {
                 Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
@@ -124,12 +127,13 @@ class LoginActivity : BaseActivity() {
 
     // --- 自動更新相關 UI 邏輯 ---
 
-    private fun getCurrentVersionCode(): Int {
+    private fun getCurrentVersionCode(): Long {
         return try {
-            packageManager.getPackageInfo(packageName, 0).versionCode
+            val pInfo = packageManager.getPackageInfo(packageName, 0)
+            PackageInfoCompat.getLongVersionCode(pInfo)
         } catch (e: Exception) {
             Log.e(TAG, "Error getting current version code", e)
-            -1
+            -1L
         }
     }
 

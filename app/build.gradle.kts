@@ -1,0 +1,63 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+}
+
+android {
+    namespace = "com.example.myapkplatform"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.myapkplatform"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 9
+        versionName = "1.0.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    // 關鍵！
+    dynamicFeatures.addAll(listOf(":FeatureModules:dfm_loadmaterial", ":FeatureModules:dfm_mountstencil"))
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = false
+        }
+        abi {
+            enableSplit = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    implementation("com.google.android.play:feature-delivery-ktx:2.1.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.activity:activity-ktx:1.8.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    testImplementation("junit:junit:4.13.2")
+}

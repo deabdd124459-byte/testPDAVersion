@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/FeatureModules/dfm_loadmaterial" />
             <option value="$PROJECT_DIR$/FeatureModules/dfm_mountstencil" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/dynamicfeature" />
           </set>
         </option>
       </GradleProjectSettings>

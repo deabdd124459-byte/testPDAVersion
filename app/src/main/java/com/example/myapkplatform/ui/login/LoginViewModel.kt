@@ -63,12 +63,16 @@ class LoginViewModel : ViewModel() {
                     _loginResult.postValue(ApiResponse(responseBody.success, response.code().toString(), responseBody.message, responseBody))
                 } else {
                     val errorBodyString = response.errorBody()?.string()
-                    val errorMessage = try {
-                        // Directly parse the "message" field from the error JSON
-                        val errorJson = JSONObject(errorBodyString)
-                        errorJson.getString("message")
-                    } catch (e: Exception) {
-                        // Fallback if parsing fails
+                    val errorMessage = if (errorBodyString != null) {
+                        try {
+                            // Attempt to parse the "message" field from the error JSON
+                            JSONObject(errorBodyString).getString("message")
+                        } catch (e: Exception) {
+                            // Fallback to the raw error string if it's not a valid JSON or doesn't have "message"
+                            errorBodyString
+                        }
+                    } else {
+                        // Fallback if the error body is null
                         response.message() ?: "Unknown error"
                     }
                     _loginResult.postValue(ApiResponse(false, response.code().toString(), errorMessage, null))
